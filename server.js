@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 const initRoutes = require("./app/routes/web");
 global.__basedir = __dirname;
+
 var corsOptions = {
   origin: "http://localhost:3001",
 };
@@ -26,9 +27,9 @@ db.sequelize
     console.log("Failed to sync db: " + err.message);
   });
 
-db.sequelize.sync({ force: true }).then(() => {
-  console.log("Drop and re-sync db.");
-});
+// db.sequelize.sync({ force: true }).then(() => {
+//   console.log("Drop and re-sync db.");
+// });
 
 // simple route
 app.get("/", (req, res) => {
